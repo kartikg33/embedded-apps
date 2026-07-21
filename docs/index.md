@@ -3,18 +3,18 @@ hide:
   - navigation
 ---
 
-# Self-Contained SquashFS Application Runtime
+# SquashFS-based Apps instead of Containers
 
 <p class="document-subtitle">
-A Lightweight Application Runtime for Resource-Constrained Linux Systems
+A Lightweight SquashFS-based Application Runtime for Resource-Constrained Linux Systems
 </p>
 
 <p class="document-meta">
 By Kartik Gohil. July 2026
 </p>
 
-This white paper proposes an application lifecycle architecture for embedded Linux
-systems.
+This paper proposes an application lifecycle architecture for embedded Linux
+systems using **squashfs** blobs instead of containers.
 
 Applications are distributed as immutable, self-contained filesystem images (squashfs images) and executed within isolated Linux namespaces. Each application carries its own dynamic loader and runtime libraries to remove dependencies on packages installed on the host Linux kernel.
 
