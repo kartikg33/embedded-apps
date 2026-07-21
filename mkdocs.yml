@@ -10,6 +10,10 @@ repo_name: kartikg33/embedded-apps
 theme:
   name: material
 
+  font:
+    text: Source Sans 4
+    code: JetBrains Mono
+
   features:
     - content.code.copy
     - content.action.edit
@@ -20,19 +24,22 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue grey
-      accent: blue grey
+      primary: teal
+      accent: teal
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue grey
-      accent: blue grey
+      primary: cyan
+      accent: cyan
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Home: index.md

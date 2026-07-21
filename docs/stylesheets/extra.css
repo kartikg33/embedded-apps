@@ -1,0 +1,142 @@
+/* Give the paper a comfortable reading width. */
+.md-grid {
+  max-width: 78rem;
+}
+
+/* Narrow the main prose column when the left navigation is hidden. */
+.md-content__inner {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+/* Improve long-form reading comfort. */
+.md-typeset {
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+/* Keep headings clean and distinct from the body text. */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+/* Stronger title treatment. */
+.md-typeset h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.95rem;
+  line-height: 1.15;
+  color: var(--md-default-fg-color);
+}
+
+/* Add breathing room between major sections. */
+.md-typeset h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+  font-size: 1.38rem;
+}
+
+/* Keep subsections clearly grouped. */
+.md-typeset h3 {
+  margin-top: 2.3rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.12rem;
+}
+
+/* More natural paragraph rhythm. */
+.md-typeset p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* Make lists less cramped. */
+.md-typeset ul,
+.md-typeset ol {
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.md-typeset li {
+  margin-bottom: 0.4rem;
+}
+
+/* Improve blockquote presentation. */
+.md-typeset blockquote {
+  margin: 1.75rem 0;
+  padding: 0.4rem 1.25rem;
+  font-size: 1.02em;
+}
+
+/* Make code blocks easier to scan. */
+.md-typeset pre {
+  margin-top: 1.5rem;
+  margin-bottom: 1.75rem;
+  border-radius: 0.45rem;
+}
+
+/* Improve table spacing. */
+.md-typeset table:not([class]) {
+  font-size: 0.76rem;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 0.75rem 0.9rem;
+  vertical-align: top;
+}
+
+/* Keep the right-side table of contents subtle. */
+.md-sidebar--secondary {
+  font-size: 0.66rem;
+}
+
+/* Reduce visual clutter in the header. */
+.md-header {
+  box-shadow: none;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Better spacing on smaller screens. */
+@media screen and (max-width: 76.1875em) {
+  .md-content__inner {
+    padding-inline: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 44.984375em) {
+  .md-typeset {
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.62rem;
+  }
+
+  .md-typeset h2 {
+    margin-top: 2.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+.document-subtitle {
+  max-width: 40rem;
+  margin-top: -0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.08rem;
+  line-height: 1.4;
+}
+
+.document-meta {
+  margin-bottom: 2.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  color: var(--md-default-fg-color--light);
+}

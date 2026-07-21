@@ -3,11 +3,15 @@ hide:
   - navigation
 ---
 
-# Executive Summary
+# Self-Contained SquashFS Application Runtime
 
-## Self-Contained SquashFS Application Runtime
+<p class="document-subtitle">
+A Lightweight Application Runtime for Resource-Constrained Linux Systems
+</p>
 
-### A Lightweight Application Lifecycle Architecture for Resource-Constrained Linux Devices
+<p class="document-meta">
+By Kartik Gohil. July 2026
+</p>
 
 This white paper proposes an application lifecycle architecture for embedded Linux
 systems.
