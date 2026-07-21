@@ -1,0 +1,57 @@
+site_name: Embedded Apps
+site_description: >-
+  A proposal for a lightweight application lifecycle architecture for
+  resource-constrained Linux devices.
+
+site_url: https://kartikg33.github.io/embedded-apps/
+repo_url: https://github.com/kartikg33/embedded-apps
+repo_name: kartikg33/embedded-apps
+
+theme:
+  name: material
+
+  features:
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+    - search.suggest
+    - search.highlight
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: blue grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+plugins:
+  - search
