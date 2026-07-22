@@ -18,6 +18,36 @@ systems using **squashfs** blobs instead of containers.
 
 Applications are distributed as immutable, self-contained filesystem images (squashfs images) and executed within isolated Linux namespaces. Each application carries its own dynamic loader and runtime libraries to remove dependencies on packages installed on the host Linux kernel.
 
+## Why Not Containers?
+
+Container technologies such as Docker and OCI runtimes have become the dominant approach to application packaging and isolation in cloud and server environments. However, for embedded Linux platforms — particularly broadband and home-networking devices — containers introduce practical constraints that make them unsuitable as the primary deployment model.
+
+### Memory Consumption
+
+Each container image bundles a complete operating system userspace alongside the application itself. On a typical embedded device with 256 MB or 512 MB of RAM, launching even a small number of containers simultaneously exhausts available memory. The resident memory overhead of a minimal container runtime, combined with per-container userspace duplication, leaves little headroom for application logic and concurrent workloads.
+
+### Rising Cost of Memory in 2026
+
+Global memory chip shortages and sustained price increases throughout 2025–2026 have placed significant pressure on device bill-of-materials costs. Manufacturers of broadband gateways, home routers, and set-top boxes are constrained to fixed memory configurations that were specified before memory prices rose. Architectures that minimise per-application memory consumption directly reduce hardware cost requirements and extend the viable lifetime of already-deployed devices.
+
+### Support for Low-Specification Devices
+
+The broadband device market encompasses a wide range of hardware, from high-end Wi-Fi 7 gateways to entry-level ADSL modems. Many deployed devices in the field have constrained CPU, limited flash storage, and small amounts of RAM. A deployment model that scales down to low-specification hardware enables a single architecture to serve the entire device population rather than requiring separate solutions for different hardware tiers.
+
+### Concurrent Application Scaling: A New Broadband Use Case
+
+Broadband platforms are increasingly expected to run multiple independent applications simultaneously — network diagnostics tools, parental controls, security agents, QoS managers, VPN clients, smart home integrations, and operator services. This concurrent multi-application use case is fundamentally different from video playback devices such as Android TV, where the interaction model is sequential: the user switches from one application to another and the platform is designed to hibernate one container before launching the next.
+
+Broadband devices cannot rely on the same hibernation strategy. Network and security applications must remain active continuously to perform their functions. Pausing a firewall or traffic shaping agent to start a diagnostics tool is not operationally acceptable. This means all applications must be resident in memory simultaneously, and the per-application memory cost is directly multiplied by the number of concurrently running applications.
+
+Container runtimes, designed for environments where resources are plentiful or workloads can be queued and hibernated, are not optimised for this pattern. The overhead of running four or five containers simultaneously on a typical broadband device with 256 MB of RAM is currently sufficient to make concurrent multi-application deployment impractical.
+
+### The Result: A Deployment Bottleneck
+
+The combination of high per-container memory overhead, rising memory costs, constrained device hardware, and the requirement for concurrent always-on applications creates a deployment bottleneck. Operators who wish to expand their application ecosystem on existing broadband hardware are throttled not by software capability but by the inability to run more than one or two containers at a time on a typical device.
+
+The architecture proposed in this document addresses this bottleneck directly by eliminating per-application userspace duplication, leveraging kernel demand paging to load only the pages actively required, and removing the resident container runtime daemon entirely.
+
 ## Executive Summary
 
 Modern embedded Linux platforms increasingly require independent application deployment, versioning, rollback, and lifecycle management. Container technologies such as OCI provide these capabilities but are primarily designed for cloud-native workloads, where resource availability and operational requirements differ significantly from constrained embedded devices.
